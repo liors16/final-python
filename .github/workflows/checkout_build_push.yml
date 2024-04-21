@@ -15,4 +15,4 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Build the Docker Image
-        run: docker build . -- file Dockerfile --tag final-python:${{ github.run_number }}-${{ github.sha }}
+        run: docker build . -- file Dockerfile --tag final-python:${{ github.run_number }}
