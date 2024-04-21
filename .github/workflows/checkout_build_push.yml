@@ -1,0 +1,18 @@
+name: Checkout & Build & Push
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+  
+jobs:
+  build_push:
+    name: build image using Dockerfile
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Build the Docker Image
+        run: docker build . -- file Dockerfile --tag final-python:${{ github.run_number }}-${{ github.sha }}
